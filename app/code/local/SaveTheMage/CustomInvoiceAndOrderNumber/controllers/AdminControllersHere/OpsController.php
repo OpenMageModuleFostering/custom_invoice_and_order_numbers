@@ -1,12 +1,12 @@
 <?php
 
-class SaveTheMage_ChangeOrderNumber_AdminControllersHere_ChangeOrderNumberController extends Mage_Adminhtml_Controller_Action
+class SaveTheMage_CustomInvoiceAndOrderNumber_AdminControllersHere_OpsController extends Mage_Adminhtml_Controller_Action
 {
 	public function indexAction()
 	{
 		$this->loadLayout();
 		
-		$this->_addLeft($this->getLayout()->createBlock('SaveTheMage_ChangeOrderNumber_Block_ShowTabsAdminBlock'));
+		$this->_addLeft($this->getLayout()->createBlock('SaveTheMage_CustomInvoiceAndOrderNumber_Block_ShowTabsAdminBlock'));
 		
 		$this->renderLayout();
                 
@@ -52,11 +52,11 @@ class SaveTheMage_ChangeOrderNumber_AdminControllersHere_ChangeOrderNumberContro
                             
                             $msg = "";
 
-                            $model = Mage::getModel('savethemagechangeordernumber/numbers');
+                            $model = Mage::getModel('savethemageCustomInvoiceAndOrderNumber/numbers');
                             if( empty( $model ) )
                             {
-                                require_once ( Mage::getBaseDir('app') . '/code/local/SaveTheMage/ChangeOrderNumber/Model/numbers.php');
-                                $model = new SaveTheMage_ChangeOrderNumber_Model_Numbers();
+                                require_once ( Mage::getBaseDir('app') . '/code/local/SaveTheMage/CustomInvoiceAndOrderNumber/Model/numbers.php');
+                                $model = new SaveTheMage_CustomInvoiceAndOrderNumber_Model_Numbers();
                             }
                             
                             $ONumber = "";
@@ -110,7 +110,7 @@ class SaveTheMage_ChangeOrderNumber_AdminControllersHere_ChangeOrderNumberContro
         
    public function getOrderInvoiceNumbersAction() { //UnUsed
        
-       $model = Mage::getModel('savethemagechangeordernumber/numbers');
+       $model = Mage::getModel('savethemageCustomInvoiceAndOrderNumber/numbers');
        $output = array();
        $output['OrderNumber'] = $model->getOrderNumber( 1 );
        $output['InvoiceNumber'] = $model->getInvoiceNumber( 1 );

@@ -45,11 +45,11 @@
                 </thead>
                 <tbody>        
                         <?php 
-                        $model = Mage::getModel('savethemagechangeordernumber/Numbers');
+                        $model = Mage::getModel('savethemageCustomInvoiceAndOrderNumber/Numbers');
                         if( empty( $model ) )
                         {
-                            require_once ( Mage::getBaseDir('app') . '/code/local/SaveTheMage/ChangeOrderNumber/Model/numbers.php');
-                            $model = new SaveTheMage_ChangeOrderNumber_Model_Numbers();
+                            require_once ( Mage::getBaseDir('app') . '/code/local/SaveTheMage/CustomInvoiceAndOrderNumber/Model/numbers.php');
+                            $model = new SaveTheMage_CustomInvoiceAndOrderNumber_Model_Numbers();
                         }
                 $websites = Mage::app()->getWebsites();
                 if (count($websites) > 0 ) { ?>
@@ -102,6 +102,7 @@
          $j( "#dialog-confirm" ).dialog({
             resizable: false,
             height:180,
+            width: 350,
             modal: true,
             buttons: {
             "Confirm": function() {
