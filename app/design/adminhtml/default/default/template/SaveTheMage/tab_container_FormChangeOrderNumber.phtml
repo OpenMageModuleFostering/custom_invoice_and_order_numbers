@@ -1,0 +1,120 @@
+<!-- Jquery UI -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<!-- Jquery UI -->
+
+<script type="text/javascript">
+// <![CDATA[
+   var $j = jQuery.noConflict();
+//]]>
+</script>
+
+
+<div class="content-header main-col-inner">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3 id="">Change default Order and Invoice Numbers</h3></td>
+            <td class="a-right">
+                <button onclick="javascript:ShowConfirmationAndSubmit();" class="scalable save" type="button"><span>Change</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" name="edit_form" method="post" action="<?php echo $this->getUrl('*/*/post') ?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <h4 class="fieldset-legend"><?php echo $this->__('Change default Order and Invoice Numbers')?></h4>
+        <fieldset id="my-fieldset1">
+            <table cellspacing="0" class="form-list" style='border: 1px solid'>
+                <thead>
+                    <tr>
+                        <th class="label">
+                            <?php echo $this->__('Store Id') ?>
+                        </th>
+                        <th class="label">
+                            <?php echo $this->__('Store') ?><a class="link-store-scope" title="What is this?" onclick="this.target='_blank'" href="http://www.magentocommerce.com/knowledge-base/entry/understanding-store-scopes">What is this?</a>
+                        </th>
+                        <th class="label">
+                            <?php echo $this->__('Next Starting Order #') ?>
+                        </th>
+                        <th class="label">
+                            <?php echo $this->__('Next Starting Invoice #') ?>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>        
+                        <?php 
+                        $model = Mage::getModel('savethemagechangeordernumber/Numbers');
+                        if( empty( $model ) )
+                        {
+                            require_once ( Mage::getBaseDir('app') . '/code/local/SaveTheMage/ChangeOrderNumber/Model/numbers.php');
+                            $model = new SaveTheMage_ChangeOrderNumber_Model_Numbers();
+                        }
+                $websites = Mage::app()->getWebsites();
+                if (count($websites) > 0 ) { ?>
+                            <?php foreach ($websites as $website): ?>
+                                <?php foreach ($website->getGroups() as $group): ?>
+                                    <?php foreach (Mage::app()->getStores($group) as $store): ?>
+                                        <tr>
+                                            <td class="label">
+                                                <?php echo $this->escapeHtml($store->getId()) ?>
+                                        <input type="hidden" value="<?php echo $this->escapeHtml($store->getId())?>" id="storeIds_<?=$this->escapeHtml($store->getId())?>" name="storeIds[]">
+                                            </td>
+                                            <td class="label">
+                                                <?php echo $this->escapeHtml($store->getName()) ?>
+                                            </td>
+                                            <?php
+                                                $orderNo = "";
+                                                $invoiceNo = "";
+                                                if( !empty( $model ) ){
+                                                        $orderNo = $model->getOrderNumber( $this->escapeHtml($store->getId()) );
+                                                        $invoiceNo = $model->getInvoiceNumber( $this->escapeHtml($store->getId()) );
+                                                }
+                                            ?>
+                                            <td class="input-ele">
+                                                <input type='number' id='OrderNumbers_<?php echo $this->escapeHtml($store->getId()) ?>' value="<?php echo  $orderNo ?>" class="input-text validate-number" name="OrderNumbers[]" />
+                                            </td>
+                                            <td class="input-ele">
+                                                <input type='number' id='InvoiceNumbers_<?php echo $this->escapeHtml($store->getId()) ?>' value="<?php echo $invoiceNo  ?>" class="input-text validate-number" name="InvoiceNumbers[]" />
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                <?php } ?>
+                </tbody>
+                    </table>
+            </fieldset>
+    </form>
+</div>
+
+<div id="dialog-confirm" title="Change Order And Invoice Number?" style='display: none;'>
+<p id='confmsg'><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span></p>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+    
+    function ShowConfirmationAndSubmit()
+    {
+        $j('#confmsg').text( 'This will change the next starting order and invoice numbers. Are you sure? ' );
+        
+         $j( "#dialog-confirm" ).dialog({
+            resizable: false,
+            height:180,
+            modal: true,
+            buttons: {
+            "Confirm": function() {
+                editForm.submit();
+                $j( this ).dialog( "close" );
+            },
+            Cancel: function() {
+                //
+                $j( this ).dialog( "close" );
+            }
+            }
+            });
+            
+        
+    }
+</script>

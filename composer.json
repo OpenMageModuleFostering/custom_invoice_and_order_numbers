@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "GPL",
     "homepage": "",
-    "description": "Change your invoice and order numbers to any number you want.",
+    "description": "Customize your invoice and order numbers. No more starting at 100000001. ",
     "authors": [
     {
         "name": "SaveTheMage",

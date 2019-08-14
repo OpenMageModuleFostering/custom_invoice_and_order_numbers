@@ -1,18 +1,20 @@
 <?xml version="1.0"?>
 <package>
     <name>Custom_Invoice_And_Order_Numbers</name>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
     <stability>stable</stability>
     <license>GPL</license>
     <channel>community</channel>
     <extends/>
-    <summary>Change your invoice and order numbers to any number you want.</summary>
-    <description>This extension gives you the option to set the invoice number and order numbers to start at any number you want. Like 123456, 64,1000001,200001, anything you want. Also changeable per store view.</description>
-    <notes>Always Backup! - This is a first release, but is tested.</notes>
+    <summary>Customize your invoice and order numbers. No more starting at 100000001. </summary>
+    <description>This extension allows you to change the next invoice and order numbers in your stores. No more counting from 100000001.&#xD;
+&#xD;
+Change your Invoice and/or Order number to something like 34584 or 1001 (or any other number) and it will start to count from that point on. </description>
+    <notes>Update to some text and functionality.</notes>
     <authors><author><name>SaveTheMage</name><user>SaveTheMage</user><email>support@savethemage.com</email></author></authors>
-    <date>2013-05-14</date>
-    <time>05:17:09</time>
-    <contents><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="SaveTheMage"><file name="tab_container_FormChangeOrderNumber.phtml" hash=""/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SaveTheMage_ChangeOrderNumber.xml" hash=""/></dir></target></contents>
+    <date>2013-05-22</date>
+    <time>01:10:41</time>
+    <contents><target name="magelocal"><dir name="SaveTheMage"><dir name="ChangeOrderNumber"><dir name="Block"><file name="BlockForFormChangeOrderNumber.php" hash="f1e19141685cfec4a89632c0b6227310"/><file name="ShowTabsAdminBlock.php" hash="c82988da3389580d192007295eb4f4ec"/></dir><dir name="Helper"><file name="Data.php" hash="9f8d6fe0ae26f33d1ca9cdf11972f9ad"/></dir><dir name="Model"><file name="numbers.php" hash="92760abd11dd716485ecb0569d9d7eaf"/></dir><dir name="controllers"><dir name="AdminControllersHere"><file name="ChangeOrderNumberController.php" hash="fd1fc8b1a508e09faa856f596ce39066"/></dir></dir><dir name="etc"><file name="config.xml" hash="395d2ed1a0a86bc981f345ff1410ca69"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="SaveTheMage"><file name="tab_container_FormChangeOrderNumber.phtml" hash="224a135cbf659510e45e3615dd114707"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SaveTheMage_ChangeOrderNumber.xml" hash="bfe7796410c551417906a26062d257e9"/></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
