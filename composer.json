@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Custom_Invoice_And_Order_Numbers",
+    "type": "magento-module",
+    "license": "GPL",
+    "homepage": "",
+    "description": "Change your invoice and order numbers to any number you want.",
+    "authors": [
+    {
+        "name": "SaveTheMage",
+        "email": "support@savethemage.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

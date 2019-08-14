@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Custom_Invoice_And_Order_Numbers</name>
+    <version>1.1.1</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Change your invoice and order numbers to any number you want.</summary>
+    <description>This extension gives you the option to set the invoice number and order numbers to start at any number you want. Like 123456, 64,1000001,200001, anything you want. Also changeable per store view.</description>
+    <notes>Always Backup! - This is a first release, but is tested.</notes>
+    <authors><author><name>SaveTheMage</name><user>SaveTheMage</user><email>support@savethemage.com</email></author></authors>
+    <date>2013-05-14</date>
+    <time>05:17:09</time>
+    <contents><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="SaveTheMage"><file name="tab_container_FormChangeOrderNumber.phtml" hash=""/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SaveTheMage_ChangeOrderNumber.xml" hash=""/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
