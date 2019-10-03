@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Custom_Invoice_And_Order_Numbers",
+    "name": "OpenMageModuleFostering\/Custom_Invoice_And_Order_Numbers",
     "type": "magento-module",
     "license": "GPL",
     "homepage": "",
     "description": "Customize your invoice and order numbers. No more starting at 100000001. ",
     "authors": [
-    {
-        "name": "SaveTheMage",
-        "email": "support@savethemage.com"
-    }
-],
+        {
+            "name": "SaveTheMage",
+            "email": "support@savethemage.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
