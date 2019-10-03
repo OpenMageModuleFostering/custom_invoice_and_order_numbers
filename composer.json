@@ -1,5 +1,5 @@
 {
-    "name": "OpenMageModuleFostering\/Custom_Invoice_And_Order_Numbers",
+    "name": "openmage-module-fostering\/custom_invoice_and_order_numbers",
     "type": "magento-module",
     "license": "GPL",
     "homepage": "",
